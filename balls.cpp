@@ -21,8 +21,24 @@ void Fillballs(int Array[], int LengthOfArray)
 	}
 }
 
+void Shuffleballs(int Array[], int LengthOfArray)
+{
+	//shuffleballs
+	for (int i = 0; i < LengthOfArray; i++)
+	{
+		int FirstNum = rand() % 45;
+		int SecNum = rand() % 45;
+
+		int Temp = Array[FirstNum];
+		Array[FirstNum] = Array[SecNum];
+		Array[SecNum] = Temp;
+	}
+}
+
 void PickSixRanBalls(int Array[], int Picktimes, int LengthOfArray, int PArray[])
 {
+
+
 	int RandNum = 0;
 	for (int i = 0; i < Picktimes; i++)
 	{
@@ -54,7 +70,6 @@ void PickSixRanBalls(int Array[], int Picktimes, int LengthOfArray, int PArray[]
 	}
 	cout << "\n";
 }
-
 int main()
 {
 	srand(static_cast<unsigned int>(time(nullptr)));
@@ -70,6 +85,9 @@ int main()
 
 	cout << "How many balls do you want to pick? : ";
 	cin >> PickNumballs;
+
+	Shuffleballs(DArray, Size);
+	PrintArray(DArray, Size);
 	int* PArray = new int[PickNumballs] {};
 	PickSixRanBalls(DArray, PickNumballs, Size, PArray);
 
