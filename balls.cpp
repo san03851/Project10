@@ -94,6 +94,8 @@ int main()
 
 	delete[] DArray;
 	delete[] PArray;
+	DArray = nullptr;
+	PArray = nullptr;
 	return 0;
 }
 
