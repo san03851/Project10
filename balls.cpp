@@ -21,22 +21,38 @@ void Fillballs(int Array[], int LengthOfArray)
 	}
 }
 
-void PickSixRanBalls(int Array[], int Picktimes, int LengthOfArray)
+void PickSixRanBalls(int Array[], int Picktimes, int LengthOfArray, int PArray[])
 {
 	int RandNum = 0;
 	for (int i = 0; i < Picktimes; i++)
 	{
 		RandNum = rand() % 45 + 1;
+		
 		if (Array[RandNum] == 0)
 		{
 			i -= 1;
 		}
 		else if (Array[RandNum] != 0)
 		{
-			cout << (i+1) << "th Number picked from " << LengthOfArray << " balls is : " << Array[RandNum] << "\n";
+			cout << (i+1) << "th Number picked from " << LengthOfArray << " balls is : " << Array[RandNum] << " ";
+			PArray[i] = Array[RandNum];
 			Array[RandNum] = 0;
 		}
 	}
+	cout << "\n";
+	for (int i = 0; i < Picktimes; i++)
+	{
+		if (i == 0)
+		{
+			cout << " 6 Lucky numbers are ";
+			cout << PArray[i] << " ";
+		}
+		else
+		{
+			cout << PArray[i] << " ";
+		}
+	}
+	cout << "\n";
 }
 
 int main()
@@ -54,11 +70,12 @@ int main()
 
 	cout << "How many balls do you want to pick? : ";
 	cin >> PickNumballs;
-
-	PickSixRanBalls(DArray, PickNumballs, Size);
+	int* PArray = new int[PickNumballs] {};
+	PickSixRanBalls(DArray, PickNumballs, Size, PArray);
 
 
 	delete[] DArray;
+	delete[] PArray;
 	return 0;
 }
 
