@@ -80,7 +80,7 @@ int main()
 	cin >> Size;
 
 	int* DArray = new int[Size]{};
-	cout << "Length of Array : " << Size << '\n';
+	//cout << "Length of Array : " << Size << '\n';
 	Fillballs(DArray, Size);
 
 	cout << "How many balls do you want to pick? : ";
